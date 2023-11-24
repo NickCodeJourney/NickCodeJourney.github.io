@@ -1328,6 +1328,10 @@ header label {
 .highlight .code .strong {
   font-weight: bold;
 }
+.gt-container {
+  max-width: 780px;
+  margin: auto;
+}
 #u-search {
     display: none;
     position: fixed;
