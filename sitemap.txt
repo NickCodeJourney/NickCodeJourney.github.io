@@ -5,11 +5,11 @@ https://nickcodejourney.github.io/about/index-1.html
 https://nickcodejourney.github.io/category/index.html
 https://nickcodejourney.github.io/tag/index.html
 https://nickcodejourney.github.io/
-https://nickcodejourney.github.io/tags/%E7%94%9F%E6%B4%BB/
-https://nickcodejourney.github.io/tags/%E6%97%85%E8%A1%8C/
 https://nickcodejourney.github.io/tags/jvm/
 https://nickcodejourney.github.io/tags/java/
 https://nickcodejourney.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/
 https://nickcodejourney.github.io/tags/%E9%9D%A2%E8%AF%95/
-https://nickcodejourney.github.io/categories/%E7%94%9F%E6%B4%BB/
+https://nickcodejourney.github.io/tags/%E7%94%9F%E6%B4%BB/
+https://nickcodejourney.github.io/tags/%E6%97%85%E8%A1%8C/
 https://nickcodejourney.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/
+https://nickcodejourney.github.io/categories/%E7%94%9F%E6%B4%BB/
