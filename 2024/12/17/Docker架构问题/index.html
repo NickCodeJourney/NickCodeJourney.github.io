@@ -13,7 +13,7 @@
 
 
 
-<title>Category | Nick&#39;s Blog</title>
+<title>Docker镜像架构问题 | Nick&#39;s Blog</title>
 
 
 
@@ -349,108 +349,233 @@
     }
 </script>
             <div class="main">
-                
-
-
-
-    <div class="container">
-        <div class="post-wrap categories">
-            <h2 class="post-title">-&nbsp;Categories&nbsp;-</h2>
-            <div class="categories-card">
-                
-                    
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/DevOps/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    DevOps
-                                </h3>
-                            </a>
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2024/12/17/Docker%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98/">Docker镜像架构问题</a>
-                                    </article>
-                                
-                            
-                            
-                        </div>
-                    </div>
-                
-                    
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    面试题
-                                </h3>
-                            </a>
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2024/12/17/JVM%E5%A4%A7%E5%8E%82%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">JVM大厂面试真题</a>
-                                    </article>
-                                
-                            
-                            
-                        </div>
-                    </div>
-                
-                    
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/%E7%94%9F%E6%B4%BB/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    生活
-                                </h3>
-                            </a>
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2023/11/28/%E6%9D%AD%E5%B7%9E%E4%B9%8B%E6%97%85/">杭州之旅</a>
-                                    </article>
-                                
-                            
-                            
-                        </div>
-                    </div>
-                
-                    
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/%E9%9D%A2%E8%AF%95/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    面试
-                                </h3>
-                            </a>
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2023/11/29/%E9%9D%A2%E8%AF%95%E5%A4%A7%E7%BA%B2/">面试大纲</a>
-                                    </article>
-                                
-                            
-                            
-                        </div>
-                    </div>
-                
-            </div>
-
-        </div>
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
     </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
 
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Docker镜像架构问题</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Nick</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 17, 2024&nbsp;&nbsp;14:44:36</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/DevOps/">DevOps</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="1、x86架构的Docker镜像可以运行在arm架构的机器上吗？"><a href="#1、x86架构的Docker镜像可以运行在arm架构的机器上吗？" class="headerlink" title="1、x86架构的Docker镜像可以运行在arm架构的机器上吗？"></a>1、x86架构的Docker镜像可以运行在arm架构的机器上吗？</h1><ul>
+<li>可以，Docker镜像的架构是独立的，x86架构的Docker镜像可以运行在arm架构的机器上。</li>
+</ul>
+<h1 id="2、arm架构的Docker镜像可以运行在x86架构的机器上吗？"><a href="#2、arm架构的Docker镜像可以运行在x86架构的机器上吗？" class="headerlink" title="2、arm架构的Docker镜像可以运行在x86架构的机器上吗？"></a>2、arm架构的Docker镜像可以运行在x86架构的机器上吗？</h1><ul>
+<li>可以，arm架构的Docker镜像可以运行在x86架构的机器上。</li>
+</ul>
+<h1 id="3、Docker镜像的架构是什么？"><a href="#3、Docker镜像的架构是什么？" class="headerlink" title="3、Docker镜像的架构是什么？"></a>3、Docker镜像的架构是什么？</h1><ul>
+<li>Docker镜像的架构是独立的，x86架构的Docker镜像可以运行在arm架构的机器上。</li>
+</ul>
+<h1 id="4、Docker镜像的架构如何查看？"><a href="#4、Docker镜像的架构如何查看？" class="headerlink" title="4、Docker镜像的架构如何查看？"></a>4、Docker镜像的架构如何查看？</h1><ul>
+<li>可以通过<code>docker inspect</code>命令查看Docker镜像的架构。</li>
+</ul>
+<h1 id="5、如何构建时指定镜像架构？"><a href="#5、如何构建时指定镜像架构？" class="headerlink" title="5、如何构建时指定镜像架构？"></a>5、如何构建时指定镜像架构？</h1><ul>
+<li>可以通过<code>docker build</code>命令指定Docker镜像的架构。</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --platform=linux/amd64 -t myimage:latest .</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="6、如何下载时指定镜像架构？"><a href="#6、如何下载时指定镜像架构？" class="headerlink" title="6、如何下载时指定镜像架构？"></a>6、如何下载时指定镜像架构？</h1><ul>
+<li>可以通过<code>docker pull</code>命令指定Docker镜像的架构。</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull --platform=linux/amd64 nginx:latest</span><br></pre></td></tr></tbody></table></figure>
+<p>或者设置环境变量<code>DOCKER_DEFAULT_PLATFORM</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DOCKER_DEFAULT_PLATFORM=linux/amd64</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="7、arm操作系统下的mac如何运行x86架构的Docker镜像？"><a href="#7、arm操作系统下的mac如何运行x86架构的Docker镜像？" class="headerlink" title="7、arm操作系统下的mac如何运行x86架构的Docker镜像？"></a>7、arm操作系统下的mac如何运行x86架构的Docker镜像？</h1><ul>
+<li>可以通过colima来运行x86架构的Docker镜像。</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install colima</span><br><span class="line">colima start --<span class="built_in">arch</span> x86_64</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h1 id="8、colima介绍"><a href="#8、colima介绍" class="headerlink" title="8、colima介绍"></a>8、colima介绍</h1><ul>
+<li>colima是一个轻量级的Docker管理工具，可以方便地在macOS和Linux上运行Docker容器。</li>
+</ul>
+<h1 id="9、colima安装"><a href="#9、colima安装" class="headerlink" title="9、colima安装"></a>9、colima安装</h1><ul>
+<li>mac用户可以通过brew安装colima。</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install colima</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>安装完成后，可以通过<code>colima start</code>命令启动colima。</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colima start</span><br></pre></td></tr></tbody></table></figure>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Nick</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://nickcodejourney.github.io/2024/12/17/Docker%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98/">https://nickcodejourney.github.io/2024/12/17/Docker%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98/</a></span>
+                    </p>
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Just do it !</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/docker/"># docker</a>
+                    
+                        <a href="/tags/%E6%9E%B6%E6%9E%84/"># 架构</a>
+                    
+                        <a href="/tags/x86/"># x86</a>
+                    
+                        <a href="/tags/arm/"># arm</a>
+                    
+                        <a href="/tags/DevOps/"># DevOps</a>
+                    
+                        <a href="/tags/colima/"># colima</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/12/17/JVM%E5%A4%A7%E5%8E%82%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">JVM大厂面试真题</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+<script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '66486dd93dce9574d1bf',
+        clientSecret: 'c9d43aa892dd44bdca49cdf6be521565b040a048',
+        repo: 'NickCodeJourney.github.io',
+        owner: 'NickCodeJourney',
+        admin: 'NickCodeJourney',
+        id: md5(location.pathname),
+        labels: 'Gitalk'.split(',').filter(l => l),
+        perPage: 10,
+        pagerDirection: 'last',
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('gitalk-container')
+</script>
+·
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">

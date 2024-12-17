@@ -1,3 +1,4 @@
+https://nickcodejourney.github.io/2024/12/17/Docker%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98/
 https://nickcodejourney.github.io/2023/11/28/%E6%9D%AD%E5%B7%9E%E4%B9%8B%E6%97%85/
 https://nickcodejourney.github.io/about/index.html
 https://nickcodejourney.github.io/tag/index.html
@@ -6,6 +7,12 @@ https://nickcodejourney.github.io/category/index.html
 https://nickcodejourney.github.io/about/index-1.html
 https://nickcodejourney.github.io/2024/12/17/JVM%E5%A4%A7%E5%8E%82%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/
 https://nickcodejourney.github.io/
+https://nickcodejourney.github.io/tags/docker/
+https://nickcodejourney.github.io/tags/%E6%9E%B6%E6%9E%84/
+https://nickcodejourney.github.io/tags/x86/
+https://nickcodejourney.github.io/tags/arm/
+https://nickcodejourney.github.io/tags/DevOps/
+https://nickcodejourney.github.io/tags/colima/
 https://nickcodejourney.github.io/tags/jvm/
 https://nickcodejourney.github.io/tags/java/
 https://nickcodejourney.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/
@@ -13,6 +20,7 @@ https://nickcodejourney.github.io/tags/%E9%9D%A2%E8%AF%95/
 https://nickcodejourney.github.io/tags/%E7%94%9F%E6%B4%BB/
 https://nickcodejourney.github.io/tags/%E6%97%85%E8%A1%8C/
 https://nickcodejourney.github.io/tags/%E5%A4%A7%E7%BA%B2/
+https://nickcodejourney.github.io/categories/DevOps/
 https://nickcodejourney.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/
 https://nickcodejourney.github.io/categories/%E7%94%9F%E6%B4%BB/
 https://nickcodejourney.github.io/categories/%E9%9D%A2%E8%AF%95/
