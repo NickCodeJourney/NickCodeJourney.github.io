@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://blog.yangnick.asia/category/index.html</loc>
+    <loc>https://blog.yangnick.asia/about/index-1.html</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://blog.yangnick.asia/about/index-1.html</loc>
+    <loc>https://blog.yangnick.asia/category/index.html</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -162,21 +162,7 @@
   </url>
   
   <url>
-    <loc>https://blog.yangnick.asia/tags/nginx/</loc>
-    <lastmod>2024-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.yangnick.asia/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2024-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.yangnick.asia/tags/%E8%B7%A8%E5%9F%9F/</loc>
+    <loc>https://blog.yangnick.asia/tags/%E5%A4%A7%E7%BA%B2/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -197,7 +183,21 @@
   </url>
   
   <url>
-    <loc>https://blog.yangnick.asia/tags/%E5%A4%A7%E7%BA%B2/</loc>
+    <loc>https://blog.yangnick.asia/tags/nginx/</loc>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yangnick.asia/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yangnick.asia/tags/%E8%B7%A8%E5%9F%9F/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -220,7 +220,7 @@
   </url>
   
   <url>
-    <loc>https://blog.yangnick.asia/categories/nginx/</loc>
+    <loc>https://blog.yangnick.asia/categories/%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -234,7 +234,7 @@
   </url>
   
   <url>
-    <loc>https://blog.yangnick.asia/categories/%E9%9D%A2%E8%AF%95/</loc>
+    <loc>https://blog.yangnick.asia/categories/nginx/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
