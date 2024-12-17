@@ -6,7 +6,7 @@
   <link href="https://nickcodejourney.github.io/atom.xml" rel="self"/>
   
   <link href="https://nickcodejourney.github.io/"/>
-  <updated>2024-12-17T06:53:57.526Z</updated>
+  <updated>2024-12-17T05:13:17.493Z</updated>
   <id>https://nickcodejourney.github.io/</id>
   
   <author>
@@ -15,40 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Docker镜像架构问题</title>
-    <link href="https://nickcodejourney.github.io/2024/12/17/Docker%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98/"/>
-    <id>https://nickcodejourney.github.io/2024/12/17/Docker%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98/</id>
-    <published>2024-12-17T06:44:36.401Z</published>
-    <updated>2024-12-17T06:53:57.526Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="1、x86架构的Docker镜像可以运行在arm架构的机器上吗？"><a href="#1、x86架构的Docker镜像可以运行在arm架构的机器上吗？" class="headerlink" title="1、x86架构的Docker镜像可以运行在arm架构的机器上吗？"></a>1、x86架构的Docker镜像可以运行在arm架构的机器上吗？</h1><ul><li>可以，Docker镜像的架构是独立的，x86架构的Docker镜像可以运行在arm架构的机器上。</li></ul><h1 id="2、arm架构的Docker镜像可以运行在x86架构的机器上吗？"><a href="#2、arm架构的Docker镜像可以运行在x86架构的机器上吗？" class="headerlink" title="2、arm架构的Docker镜像可以运行在x86架构的机器上吗？"></a>2、arm架构的Docker镜像可以运行在x86架构的机器上吗？</h1><ul><li>可以，arm架构的Docker镜像可以运行在x86架构的机器上。</li></ul><h1 id="3、Docker镜像的架构是什么？"><a href="#3、Docker镜像的架构是什么？" class="headerlink" title="3、Docker镜像的架构是什么？"></a>3、Docker镜像的架构是什么？</h1><ul><li>Docker镜像的架构是独立的，x86架构的Docker镜像可以运行在arm架构的机器上。</li></ul><h1 id="4、Docker镜像的架构如何查看？"><a href="#4、Docker镜像的架构如何查看？" class="headerlink" title="4、Docker镜像的架构如何查看？"></a>4、Docker镜像的架构如何查看？</h1><ul><li>可以通过<code>docker inspect</code>命令查看Docker镜像的架构。</li></ul><h1 id="5、如何构建时指定镜像架构？"><a href="#5、如何构建时指定镜像架构？" class="headerlink" title="5、如何构建时指定镜像架构？"></a>5、如何构建时指定镜像架构？</h1><ul><li>可以通过<code>docker build</code>命令指定Docker镜像的架构。</li></ul><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --platform=linux/amd64 -t myimage:latest .</span><br></pre></td></tr></tbody></table></figure><h1 id="6、如何下载时指定镜像架构？"><a href="#6、如何下载时指定镜像架构？" class="headerlink" title="6、如何下载时指定镜像架构？"></a>6、如何下载时指定镜像架构？</h1><ul><li>可以通过<code>docker pull</code>命令指定Docker镜像的架构。</li></ul><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull --platform=linux/amd64 nginx:latest</span><br></pre></td></tr></tbody></table></figure><p>或者设置环境变量<code>DOCKER_DEFAULT_PLATFORM</code></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DOCKER_DEFAULT_PLATFORM=linux/amd64</span><br></pre></td></tr></tbody></table></figure><h1 id="7、arm操作系统下的mac如何运行x86架构的Docker镜像？"><a href="#7、arm操作系统下的mac如何运行x86架构的Docker镜像？" class="headerlink" title="7、arm操作系统下的mac如何运行x86架构的Docker镜像？"></a>7、arm操作系统下的mac如何运行x86架构的Docker镜像？</h1><ul><li>可以通过colima来运行x86架构的Docker镜像。</li></ul><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install colima</span><br><span class="line">colima start --<span class="built_in">arch</span> x86_64</span><br></pre></td></tr></tbody></table></figure><h1 id="8、colima介绍"><a href="#8、colima介绍" class="headerlink" title="8、colima介绍"></a>8、colima介绍</h1><ul><li>colima是一个轻量级的Docker管理工具，可以方便地在macOS和Linux上运行Docker容器。</li></ul><h1 id="9、colima安装"><a href="#9、colima安装" class="headerlink" title="9、colima安装"></a>9、colima安装</h1><ul><li>mac用户可以通过brew安装colima。</li></ul><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install colima</span><br></pre></td></tr></tbody></table></figure><ul><li>安装完成后，可以通过<code>colima start</code>命令启动colima。</li></ul><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colima start</span><br></pre></td></tr></tbody></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;1、x86架构的Docker镜像可以运行在arm架构的机器上吗？&quot;&gt;&lt;a href=&quot;#1、x86架构的Docker镜像可以运行在arm架构的机器上吗？&quot; class=&quot;headerlink&quot; title=&quot;1、x86架构的Docker镜像可以运行在arm架构的机</summary>
-      
-    
-    
-    
-    <category term="DevOps" scheme="https://nickcodejourney.github.io/categories/DevOps/"/>
-    
-    
-    <category term="docker" scheme="https://nickcodejourney.github.io/tags/docker/"/>
-    
-    <category term="架构" scheme="https://nickcodejourney.github.io/tags/%E6%9E%B6%E6%9E%84/"/>
-    
-    <category term="x86" scheme="https://nickcodejourney.github.io/tags/x86/"/>
-    
-    <category term="arm" scheme="https://nickcodejourney.github.io/tags/arm/"/>
-    
-    <category term="DevOps" scheme="https://nickcodejourney.github.io/tags/DevOps/"/>
-    
-    <category term="colima" scheme="https://nickcodejourney.github.io/tags/colima/"/>
-    
-  </entry>
   
   <entry>
     <title>JVM大厂面试真题</title>
@@ -78,6 +44,40 @@
     <category term="基础知识" scheme="https://nickcodejourney.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
     <category term="面试" scheme="https://nickcodejourney.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker镜像架构问题</title>
+    <link href="https://nickcodejourney.github.io/2024/01/01/Docker%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://nickcodejourney.github.io/2024/01/01/Docker%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98/</id>
+    <published>2023-12-31T16:00:00.000Z</published>
+    <updated>2024-12-17T07:01:43.940Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Docker-架构基础"><a href="#Docker-架构基础" class="headerlink" title="Docker 架构基础"></a>Docker 架构基础</h2><h3 id="1-x86架构的Docker镜像可以运行在arm架构的机器上吗？"><a href="#1-x86架构的Docker镜像可以运行在arm架构的机器上吗？" class="headerlink" title="1. x86架构的Docker镜像可以运行在arm架构的机器上吗？"></a>1. x86架构的Docker镜像可以运行在arm架构的机器上吗？</h3><ul><li>默认情况下，x86架构的Docker镜像不能直接运行在arm架构的机器上</li><li>但可以通过以下方式实现跨架构运行：<ol><li>使用 QEMU 模拟器</li><li>使用支持多架构的镜像（multi-arch images）</li><li>使用 buildx 构建多架构镜像</li></ol></li></ul><h3 id="2-Docker-镜像架构类型"><a href="#2-Docker-镜像架构类型" class="headerlink" title="2. Docker 镜像架构类型"></a>2. Docker 镜像架构类型</h3><p>常见的 Docker 镜像架构包括：</p><ul><li>linux/amd64 (x86_64)</li><li>linux/arm64 (aarch64)</li><li>linux/arm/v7</li><li>linux/arm/v6</li><li>linux/386</li><li>linux/ppc64le</li><li>linux/s390x</li></ul><h3 id="3-多架构镜像（Multi-arch-images）"><a href="#3-多架构镜像（Multi-arch-images）" class="headerlink" title="3. 多架构镜像（Multi-arch images）"></a>3. 多架构镜像（Multi-arch images）</h3><p>多架构镜像允许同一个镜像标签支持多个平台和架构：</p><ul><li>Docker 会自动选择匹配当前系统架构的版本</li><li>无需手动指定架构参数</li><li>通过 manifest 列表实现</li></ul><h3 id="4-Docker镜像架构查看方法"><a href="#4-Docker镜像架构查看方法" class="headerlink" title="4. Docker镜像架构查看方法"></a>4. Docker镜像架构查看方法</h3><p>查看镜像架构的几种方式：</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：使用 docker inspect</span></span><br><span class="line">docker inspect image_name | grep <span class="string">"Architecture"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：查看镜像清单</span></span><br><span class="line">docker manifest inspect image_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法3：使用 docker info</span></span><br><span class="line">docker info | grep <span class="string">"Architecture"</span></span><br></pre></td></tr></tbody></table></figure><h3 id="5-构建特定架构的镜像"><a href="#5-构建特定架构的镜像" class="headerlink" title="5. 构建特定架构的镜像"></a>5. 构建特定架构的镜像</h3><p>使用 <code>--platform</code> 参数指定目标架构：</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建 ARM64 架构镜像</span></span><br><span class="line">docker build --platform=linux/arm64 -t myimage:arm64 .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建 AMD64 架构镜像</span></span><br><span class="line">docker build --platform=linux/amd64 -t myimage:amd64 .</span><br></pre></td></tr></tbody></table></figure><h3 id="6-拉取特定架构的镜像"><a href="#6-拉取特定架构的镜像" class="headerlink" title="6. 拉取特定架构的镜像"></a>6. 拉取特定架构的镜像</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取 ARM64 架构镜像</span></span><br><span class="line">docker pull --platform=linux/arm64 nginx:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拉取 AMD64 架构镜像</span></span><br><span class="line">docker pull --platform=linux/amd64 nginx:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置默认架构</span></span><br><span class="line"><span class="built_in">export</span> DOCKER_DEFAULT_PLATFORM=linux/amd64</span><br></pre></td></tr></tbody></table></figure><h3 id="7-ARM-Mac-运行-x86-架构镜像"><a href="#7-ARM-Mac-运行-x86-架构镜像" class="headerlink" title="7. ARM Mac 运行 x86 架构镜像"></a>7. ARM Mac 运行 x86 架构镜像</h3><p>在搭载 Apple Silicon 的 Mac 上运行 x86 架构的 Docker 镜像：</p><ol><li><p>使用 Colima（推荐）：</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Colima</span></span><br><span class="line">brew install colima</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动支持 x86_64 的虚拟机</span></span><br><span class="line">colima start --<span class="built_in">arch</span> x86_64 --memory 4 --disk 100</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证架构</span></span><br><span class="line">docker info | grep <span class="string">"Architecture"</span></span><br></pre></td></tr></tbody></table></figure></li><li><p>使用 Docker Desktop：</p><ul><li>在设置中启用 “Use Rosetta for x86/amd64 emulation on Apple Silicon”</li></ul></li></ol><h3 id="8-Colima-详细介绍"><a href="#8-Colima-详细介绍" class="headerlink" title="8. Colima 详细介绍"></a>8. Colima 详细介绍</h3><p>Colima 是一个轻量级的容器运行时环境：</p><ul><li><p>特点：</p><ul><li>开源免费</li><li>资源占用低</li><li>支持 x86_64 模拟</li><li>支持 Kubernetes</li><li>命令行友好</li></ul></li><li><p>基本操作：</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 Colima</span></span><br><span class="line">colima start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止 Colima</span></span><br><span class="line">colima stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 Colima 实例</span></span><br><span class="line">colima delete</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">colima status</span><br></pre></td></tr></tbody></table></figure></li></ul><h3 id="9-最佳实践建议"><a href="#9-最佳实践建议" class="headerlink" title="9. 最佳实践建议"></a>9. 最佳实践建议</h3><ol><li>优先使用多架构镜像</li><li>在构建时就考虑多架构支持</li><li>使用 BuildKit 和 buildx 进行多架构构建</li><li>合理使用 QEMU 模拟器</li><li>在生产环境中尽量使用原生架构</li></ol><h3 id="10-常见问题排查"><a href="#10-常见问题排查" class="headerlink" title="10. 常见问题排查"></a>10. 常见问题排查</h3><ol><li>架构不匹配错误：<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">standard_init_linux.go:228: exec user process caused: exec format error</span><br></pre></td></tr></tbody></table></figure>解决方案：</li></ol><ul><li>确认镜像架构</li><li>使用正确架构的镜像</li><li>启用架构模拟</li></ul><ol start="2"><li>性能问题：</li></ol><ul><li>模拟运行会带来性能损耗</li><li>建议使用原生架构镜像</li><li>必要时增加资源配额</li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://docs.docker.com/build/building/multi-platform/">Docker 官方文档</a></li><li><a href="https://github.com/abiosoft/colima">Colima GitHub</a></li><li><a href="https://docs.docker.com/build/buildkit/">BuildKit 文档</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Docker-架构基础&quot;&gt;&lt;a href=&quot;#Docker-架构基础&quot; class=&quot;headerlink&quot; title=&quot;Docker 架构基础&quot;&gt;&lt;/a&gt;Docker 架构基础&lt;/h2&gt;&lt;h3 id=&quot;1-x86架构的Docker镜像可以运行在arm架构的机器</summary>
+      
+    
+    
+    
+    <category term="DevOps" scheme="https://nickcodejourney.github.io/categories/DevOps/"/>
+    
+    
+    <category term="docker" scheme="https://nickcodejourney.github.io/tags/docker/"/>
+    
+    <category term="架构" scheme="https://nickcodejourney.github.io/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+    <category term="x86" scheme="https://nickcodejourney.github.io/tags/x86/"/>
+    
+    <category term="arm" scheme="https://nickcodejourney.github.io/tags/arm/"/>
+    
+    <category term="DevOps" scheme="https://nickcodejourney.github.io/tags/DevOps/"/>
+    
+    <category term="colima" scheme="https://nickcodejourney.github.io/tags/colima/"/>
     
   </entry>
   
