@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nickcodejourney.github.io/2024/12/17/nginx%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://blog.yangnick.asia/2024/12/17/nginx%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/about/index.html</loc>
+    <loc>https://blog.yangnick.asia/about/index.html</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/2024/12/17/Docker%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://blog.yangnick.asia/2024/12/17/Docker%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/2023/11/28/%E6%9D%AD%E5%B7%9E%E4%B9%8B%E6%97%85/</loc>
+    <loc>https://blog.yangnick.asia/2023/11/28/%E6%9D%AD%E5%B7%9E%E4%B9%8B%E6%97%85/</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tag/index.html</loc>
+    <loc>https://blog.yangnick.asia/tag/index.html</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/2023/11/29/%E9%9D%A2%E8%AF%95%E5%A4%A7%E7%BA%B2/</loc>
+    <loc>https://blog.yangnick.asia/2023/11/29/%E9%9D%A2%E8%AF%95%E5%A4%A7%E7%BA%B2/</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/about/index-1.html</loc>
+    <loc>https://blog.yangnick.asia/about/index-1.html</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/category/index.html</loc>
+    <loc>https://blog.yangnick.asia/category/index.html</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/2024/12/17/JVM%E5%A4%A7%E5%8E%82%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/</loc>
+    <loc>https://blog.yangnick.asia/2024/12/17/JVM%E5%A4%A7%E5%8E%82%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/</loc>
     
     <lastmod>2024-12-17</lastmod>
     
@@ -84,7 +84,7 @@
   
 
   <url>
-    <loc>https://nickcodejourney.github.io/</loc>
+    <loc>https://blog.yangnick.asia/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -92,112 +92,112 @@
 
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/docker/</loc>
+    <loc>https://blog.yangnick.asia/tags/docker/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/%E6%9E%B6%E6%9E%84/</loc>
+    <loc>https://blog.yangnick.asia/tags/%E6%9E%B6%E6%9E%84/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/x86/</loc>
+    <loc>https://blog.yangnick.asia/tags/x86/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/arm/</loc>
+    <loc>https://blog.yangnick.asia/tags/arm/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/DevOps/</loc>
+    <loc>https://blog.yangnick.asia/tags/DevOps/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/colima/</loc>
+    <loc>https://blog.yangnick.asia/tags/colima/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/jvm/</loc>
+    <loc>https://blog.yangnick.asia/tags/jvm/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/java/</loc>
+    <loc>https://blog.yangnick.asia/tags/java/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    <loc>https://blog.yangnick.asia/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/%E9%9D%A2%E8%AF%95/</loc>
+    <loc>https://blog.yangnick.asia/tags/%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/nginx/</loc>
+    <loc>https://blog.yangnick.asia/tags/nginx/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
+    <loc>https://blog.yangnick.asia/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/%E8%B7%A8%E5%9F%9F/</loc>
+    <loc>https://blog.yangnick.asia/tags/%E8%B7%A8%E5%9F%9F/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://blog.yangnick.asia/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/%E6%97%85%E8%A1%8C/</loc>
+    <loc>https://blog.yangnick.asia/tags/%E6%97%85%E8%A1%8C/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/tags/%E5%A4%A7%E7%BA%B2/</loc>
+    <loc>https://blog.yangnick.asia/tags/%E5%A4%A7%E7%BA%B2/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -206,35 +206,35 @@
 
   
   <url>
-    <loc>https://nickcodejourney.github.io/categories/DevOps/</loc>
+    <loc>https://blog.yangnick.asia/categories/DevOps/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <loc>https://blog.yangnick.asia/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/categories/nginx/</loc>
+    <loc>https://blog.yangnick.asia/categories/nginx/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://blog.yangnick.asia/categories/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nickcodejourney.github.io/categories/%E9%9D%A2%E8%AF%95/</loc>
+    <loc>https://blog.yangnick.asia/categories/%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
