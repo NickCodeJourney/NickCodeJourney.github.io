@@ -456,7 +456,7 @@
 <ol start="2">
 <li><p>修改配置文件</p>
 <p>打开 postgresql.conf 文件，找到或添加以下行：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shared_preload_libraries = <span class="string">'pg_stat_statements'</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>shared_preload_libraries = ‘pg_stat_statements’</strong></p>
 </li>
 <li><p>保存配置文件后，重启 PostgreSQL：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart postgresql</span><br></pre></td></tr></tbody></table></figure></li>
