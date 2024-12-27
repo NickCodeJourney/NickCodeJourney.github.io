@@ -13,7 +13,7 @@
 
 
 
-<title>碳水循环 | Nick&#39;s Blog</title>
+<title>PostgreSQL查询QPS监控指南 | Nick&#39;s Blog</title>
 
 
 
@@ -421,7 +421,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">碳水循环</h1>
+            <h1 class="post-title">PostgreSQL查询QPS监控指南</h1>
             
                 <div class="post-meta">
                     
@@ -430,14 +430,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 19, 2024&nbsp;&nbsp;9:11:55</a>
+                        Date: <a href="#">December 27, 2024&nbsp;&nbsp;14:23:01</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
                             
                         </span>
                     
@@ -446,54 +446,55 @@
         </header>
 
         <div class="post-content">
-            <h1 id="碳水循环简介"><a href="#碳水循环简介" class="headerlink" title="碳水循环简介"></a>碳水循环简介</h1><p>碳水循环（Carb Cycling）是一种饮食策略，主要用于控制体脂、提高运动表现和改善身体的代谢反应。它通过在不同的日子里调整碳水化合物的摄入量，以优化身体对能量的使用和消耗。这种方法特别在健身、减脂和增肌的过程中被广泛应用。</p>
-<h1 id="碳水循环的基本原理"><a href="#碳水循环的基本原理" class="headerlink" title="碳水循环的基本原理"></a>碳水循环的基本原理</h1><p>碳水循环的核心理念是：根据训练的强度和身体的需求来调整碳水化合物的摄入量。在高强度训练日摄入更多碳水化合物，而在休息日或低强度训练日减少碳水化合物的摄入量，从而实现最佳的脂肪燃烧和肌肉恢复效果。</p>
-<h1 id="碳水循环的常见模式"><a href="#碳水循环的常见模式" class="headerlink" title="碳水循环的常见模式"></a>碳水循环的常见模式</h1><p>碳水循环有几种常见的方式，通常根据每周的训练安排来进行调整：</p>
-<h2 id="1-高碳水日"><a href="#1-高碳水日" class="headerlink" title="1. 高碳水日"></a>1. 高碳水日</h2><ul>
-<li>通常安排在高强度训练日，如大重量训练、HIIT（高强度间歇训练）或长时间的有氧运动</li>
-<li>目的是提供足够的能量和恢复能力，避免在训练期间因碳水不足而导致肌肉分解</li>
-<li>摄入的碳水量通常占总热量的50%-70%</li>
+            <h2 id="一、安装pg-stat-statements扩展"><a href="#一、安装pg-stat-statements扩展" class="headerlink" title="一、安装pg_stat_statements扩展"></a>一、安装pg_stat_statements扩展</h2><h3 id="1-1-检查扩展是否已安装"><a href="#1-1-检查扩展是否已安装" class="headerlink" title="1.1 检查扩展是否已安装"></a>1.1 检查扩展是否已安装</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> pg_available_extensions <span class="keyword">WHERE</span> name <span class="operator">=</span> <span class="string">'pg_stat_statements'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="1-2-安装方式"><a href="#1-2-安装方式" class="headerlink" title="1.2 安装方式"></a>1.2 安装方式</h3><h4 id="Linux环境安装"><a href="#Linux环境安装" class="headerlink" title="Linux环境安装"></a>Linux环境安装</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu/Debian</span></span><br><span class="line">sudo apt-get install postgresql-contrib</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS/RHEL</span></span><br><span class="line">sudo yum install postgresql-contrib</span><br><span class="line"><span class="comment">#启用 pg_stat_statements 需要配置 PostgreSQL：</span></span><br><span class="line">	<span class="comment">#•	打开 postgresql.conf 文件，找到或添加以下行：</span></span><br><span class="line">shared_preload_libraries = <span class="string">'pg_stat_statements'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="Docker环境安装"><a href="#Docker环境安装" class="headerlink" title="Docker环境安装"></a>Docker环境安装</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 修改配置</span></span><br><span class="line">docker <span class="built_in">exec</span> -it &lt;container_name&gt; /bin/bash</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"shared_preload_libraries = 'pg_stat_statements'"</span> &gt;&gt; /var/lib/postgresql/data/postgresql.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 重启容器</span></span><br><span class="line">docker restart &lt;container_name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="1-3-启用扩展"><a href="#1-3-启用扩展" class="headerlink" title="1.3 启用扩展"></a>1.3 启用扩展</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> EXTENSION pg_stat_statements;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="二、常用QPS监控查询"><a href="#二、常用QPS监控查询" class="headerlink" title="二、常用QPS监控查询"></a>二、常用QPS监控查询</h2><h3 id="2-1-实时QPS查询"><a href="#2-1-实时QPS查询" class="headerlink" title="2.1 实时QPS查询"></a>2.1 实时QPS查询</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span></span><br><span class="line"> t1 <span class="keyword">as</span> (<span class="keyword">select</span> <span class="built_in">sum</span>(calls) n <span class="keyword">from</span> pg_stat_statements),</span><br><span class="line"> t2 <span class="keyword">as</span> (<span class="keyword">select</span> <span class="built_in">sum</span>(calls) n <span class="keyword">from</span> pg_stat_statements , pg_sleep(<span class="number">1</span>))</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line"> t2.n<span class="operator">-</span>t1.n the_num_of_queries_per_second</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line"> t1,t2;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-2-QPS-从服务开启到现在"><a href="#2-2-QPS-从服务开启到现在" class="headerlink" title="2.2 QPS 从服务开启到现在"></a>2.2 QPS 从服务开启到现在</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">sum</span>(calls) <span class="operator">/</span> <span class="built_in">EXTRACT</span>(EPOCH <span class="keyword">FROM</span> NOW() <span class="operator">-</span> pg_postmaster_start_time())</span><br><span class="line"><span class="keyword">from</span> pg_stat_statements;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-4-查询执行次数TOP-10"><a href="#2-4-查询执行次数TOP-10" class="headerlink" title="2.4 查询执行次数TOP 10"></a>2.4 查询执行次数TOP 10</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> query, </span><br><span class="line">       calls,</span><br><span class="line">       total_exec_time,</span><br><span class="line">       <span class="keyword">rows</span>,</span><br><span class="line">       (total_exec_time<span class="operator">/</span>calls) <span class="keyword">as</span> avg_time</span><br><span class="line"><span class="keyword">FROM</span> pg_stat_statements </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> calls <span class="keyword">DESC</span> </span><br><span class="line">LIMIT <span class="number">10</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-5-查询耗时TOP-10"><a href="#2-5-查询耗时TOP-10" class="headerlink" title="2.5 查询耗时TOP 10"></a>2.5 查询耗时TOP 10</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> query,</span><br><span class="line">       calls,</span><br><span class="line">       total_exec_time,</span><br><span class="line">       (total_exec_time<span class="operator">/</span>calls) <span class="keyword">as</span> avg_time,</span><br><span class="line">       <span class="keyword">rows</span></span><br><span class="line"><span class="keyword">FROM</span> pg_stat_statements </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> total_exec_time <span class="keyword">DESC</span> </span><br><span class="line">LIMIT <span class="number">10</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-6-查询返回行数TOP-10"><a href="#2-6-查询返回行数TOP-10" class="headerlink" title="2.6 查询返回行数TOP 10"></a>2.6 查询返回行数TOP 10</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> query,</span><br><span class="line">       calls,</span><br><span class="line">       <span class="keyword">rows</span>,</span><br><span class="line">       (<span class="keyword">rows</span><span class="operator">/</span>calls) <span class="keyword">as</span> avg_rows</span><br><span class="line"><span class="keyword">FROM</span> pg_stat_statements </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">rows</span> <span class="keyword">DESC</span> </span><br><span class="line">LIMIT <span class="number">10</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-7-缓存命中率低的查询"><a href="#2-7-缓存命中率低的查询" class="headerlink" title="2.7 缓存命中率低的查询"></a>2.7 缓存命中率低的查询</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> query,</span><br><span class="line">       shared_blks_hit,</span><br><span class="line">       shared_blks_read,</span><br><span class="line">       (shared_blks_hit::<span class="type">float</span> <span class="operator">/</span> <span class="built_in">NULLIF</span>(shared_blks_hit <span class="operator">+</span> shared_blks_read, <span class="number">0</span>)) <span class="keyword">AS</span> hit_rate</span><br><span class="line"><span class="keyword">FROM</span> pg_stat_statements</span><br><span class="line"><span class="keyword">WHERE</span> (shared_blks_hit <span class="operator">+</span> shared_blks_read) <span class="operator">&gt;</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> hit_rate <span class="keyword">ASC</span></span><br><span class="line">LIMIT <span class="number">10</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-8-IO消耗TOP-10"><a href="#2-8-IO消耗TOP-10" class="headerlink" title="2.8 IO消耗TOP 10"></a>2.8 IO消耗TOP 10</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> query,</span><br><span class="line">       calls,</span><br><span class="line">       shared_blks_read,</span><br><span class="line">       shared_blks_written,</span><br><span class="line">       temp_blks_written</span><br><span class="line"><span class="keyword">FROM</span> pg_stat_statements</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> (shared_blks_read <span class="operator">+</span> shared_blks_written <span class="operator">+</span> temp_blks_written) <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">10</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="三、注意事项"><a href="#三、注意事项" class="headerlink" title="三、注意事项"></a>三、注意事项</h2><ol>
+<li><p><strong>性能影响</strong></p>
+<ul>
+<li>启用pg_stat_statements会带来轻微性能开销</li>
+<li>建议在非高峰期进行监控分析</li>
 </ul>
-<h2 id="2-低碳水日"><a href="#2-低碳水日" class="headerlink" title="2. 低碳水日"></a>2. 低碳水日</h2><ul>
-<li>安排在休息日或低强度训练日，目标是减少总热量摄入，促进脂肪燃烧</li>
-<li>摄入的碳水量较少，通常占总热量的10%-20%</li>
+</li>
+<li><p><strong>统计重置</strong></p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> pg_stat_statements_reset();</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>监控建议</strong></p>
+<ul>
+<li>定期检查高频查询的性能</li>
+<li>关注缓存命中率低的SQL</li>
+<li>分析临时文件使用情况</li>
 </ul>
-<h2 id="3-非常低碳水日"><a href="#3-非常低碳水日" class="headerlink" title="3. 非常低碳水日"></a>3. 非常低碳水日</h2><ul>
-<li>一些极限碳水循环计划会安排极低碳水化合物摄入日，通常是断食或极低的碳水量，用于最大化脂肪燃烧</li>
-<li>碳水摄入量可能会降到每天50克以下，依赖于脂肪作为主要能量来源</li>
+</li>
+<li><p><strong>优化方向</strong></p>
+<ul>
+<li>针对慢查询优化索引</li>
+<li>调整数据库配置参数</li>
+<li>优化SQL语句结构</li>
 </ul>
-<h1 id="碳水循环的优势"><a href="#碳水循环的优势" class="headerlink" title="碳水循环的优势"></a>碳水循环的优势</h1><ol>
-<li>脂肪燃烧：在低碳水日，身体通过消耗储存的脂肪来提供能量，有助于减少体脂</li>
-<li>保持肌肉质量：高碳水日提供充足的能量，帮助恢复和维持肌肉的糖原储备，避免肌肉分解</li>
-<li>避免代谢适应：长期限制碳水化合物可能会导致代谢变慢，而碳水循环可以防止这种代谢适应，保持身体的代谢率</li>
-<li>提高运动表现：在高碳水日，能量充沛，有助于提升训练强度和运动表现</li>
+</li>
 </ol>
-<h1 id="碳水循环的实施"><a href="#碳水循环的实施" class="headerlink" title="碳水循环的实施"></a>碳水循环的实施</h1><p>为了有效实施碳水循环，可以遵循以下几点：</p>
-<ul>
-<li>根据训练安排调整碳水摄入：在高强度训练日增加碳水，低强度或休息日减少碳水</li>
-<li>优先选择优质碳水：高纤维、低GI（升糖指数）食物，如全谷物、蔬菜、水果等，能提供稳定的能量释放</li>
-<li>调整总热量摄入：碳水循环不仅仅是碳水的调整，还需要控制总热量摄入，以确保达到减脂或增肌的目标</li>
-</ul>
-<h1 id="碳水循环的适用人群"><a href="#碳水循环的适用人群" class="headerlink" title="碳水循环的适用人群"></a>碳水循环的适用人群</h1><p>碳水循环适合那些有明确健身目标的人群，尤其是：</p>
-<ul>
-<li>减脂：通过控制低碳水日来促进脂肪燃烧，同时在高碳水日保持肌肉的糖原储备</li>
-<li>增肌：通过高碳水日来提供充足的能量支持训练，并减少肌肉流失</li>
-<li>竞技运动员：提高运动表现的同时管理体重和体脂水平</li>
-</ul>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ol>
-<li>个体差异：每个人的代谢和运动需求不同，碳水循环的计划应根据个人情况调整</li>
-<li>平衡饮食：除了碳水化合物外，摄入足够的蛋白质和健康脂肪也非常重要，确保整体饮食的营养平衡</li>
-<li>长期效果：虽然碳水循环可以在短期内帮助提升运动表现和控制体脂，但长期效果还需根据个人的健身目标进行评估</li>
-</ol>
-<h1 id="示例计划"><a href="#示例计划" class="headerlink" title="示例计划"></a>示例计划</h1><p>假设你一周训练五天，休息两天，你可以设置如下的碳水循环模式：</p>
-<ul>
-<li>星期一（高碳水日）：训练强度高，摄入60-70%的碳水，蛋白质和脂肪适中</li>
-<li>星期二（低碳水日）：进行低强度运动或休息日，摄入30-40%的碳水</li>
-<li>星期三（高碳水日）：和星期一类似，增加碳水摄入，保持训练强度</li>
-<li>星期四（低碳水日）：减少碳水，增加脂肪的摄入</li>
-<li>星期五（高碳水日）：高强度训练，增加碳水摄入，恢复肌肉糖原</li>
-<li>星期六（低碳水日）：低强度活动或休息，减少碳水，促进脂肪燃烧</li>
-<li>星期日（休息日）：碳水摄入维持在较低水平，重点控制体脂</li>
+<h2 id="四、参考文档"><a href="#四、参考文档" class="headerlink" title="四、参考文档"></a>四、参考文档</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.postgresql.org/docs/current/pgstatstatements.html">PostgreSQL官方文档</a>- <a target="_blank" rel="noopener" href="https://www.postgresql.org/docs/current/performance-tips.html">PostgreSQL性能优化指南</a></li>
 </ul>
 
         </div>
@@ -509,7 +510,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://blog.yangnick.asia/2024/12/19/%E7%A2%B3%E6%B0%B4%E5%BE%AA%E7%8E%AF/">https://blog.yangnick.asia/2024/12/19/%E7%A2%B3%E6%B0%B4%E5%BE%AA%E7%8E%AF/</a></span>
+                        <span><a href="https://blog.yangnick.asia/2024/12/27/postgresql%E6%9F%A5%E8%AF%A2qps/">https://blog.yangnick.asia/2024/12/27/postgresql%E6%9F%A5%E8%AF%A2qps/</a></span>
                     </p>
                 
                 
@@ -528,9 +529,11 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E7%94%9F%E6%B4%BB/"># 生活</a>
+                        <a href="/tags/PostgreSQL/"># PostgreSQL</a>
                     
-                        <a href="/tags/%E5%81%A5%E8%BA%AB/"># 健身</a>
+                        <a href="/tags/QPS/"># QPS</a>
+                    
+                        <a href="/tags/%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7/"># 性能监控</a>
                     
                         
                 </span>
@@ -543,10 +546,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/12/27/postgresql%E6%9F%A5%E8%AF%A2qps/">PostgreSQL查询QPS监控指南</a>
             
-            
-            <a class="next" rel="next" href="/2024/12/17/nginx%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">nginx解决跨域问题</a>
+            <a class="next" rel="next" href="/2024/12/19/%E7%A2%B3%E6%B0%B4%E5%BE%AA%E7%8E%AF/">碳水循环</a>
             
         </section>
 

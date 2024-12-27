@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.yangnick.asia/2024/12/27/postgresql%E6%9F%A5%E8%AF%A2qps/</loc>
+    
+    <lastmod>2024-12-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.yangnick.asia/2024/12/19/%E7%A2%B3%E6%B0%B4%E5%BE%AA%E7%8E%AF/</loc>
     
     <lastmod>2024-12-19</lastmod>
@@ -94,7 +103,7 @@
 
   <url>
     <loc>https://blog.yangnick.asia/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -102,119 +111,140 @@
   
   <url>
     <loc>https://blog.yangnick.asia/tags/docker/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/%E6%9E%B6%E6%9E%84/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/x86/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/arm/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/DevOps/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/colima/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/jvm/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/java/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/%E9%9D%A2%E8%AF%95/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/nginx/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/%E8%B7%A8%E5%9F%9F/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/%E6%97%85%E8%A1%8C/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/%E5%81%A5%E8%BA%AB/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/tags/%E5%A4%A7%E7%BA%B2/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yangnick.asia/tags/PostgreSQL/</loc>
+    <lastmod>2024-12-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yangnick.asia/tags/QPS/</loc>
+    <lastmod>2024-12-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yangnick.asia/tags/%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7/</loc>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -223,35 +253,42 @@
   
   <url>
     <loc>https://blog.yangnick.asia/categories/DevOps/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/categories/nginx/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/categories/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.yangnick.asia/categories/%E9%9D%A2%E8%AF%95/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yangnick.asia/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
